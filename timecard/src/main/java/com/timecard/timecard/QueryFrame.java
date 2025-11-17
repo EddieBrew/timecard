@@ -26,7 +26,7 @@ public class QueryFrame extends JFrame{
 	 */
 	public QueryFrame() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 500);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -43,7 +43,7 @@ public class QueryFrame extends JFrame{
 		myFrame.setResizable(false);
 		myFrame.setTitle("My QUERY REQUESTS ");
 		myFrame.getContentPane().setLayout(new GridLayout(2,1));
-		myFrame.setSize(420,);
+		myFrame.setSize(420,500);
 		myFrame.getContentPane().add(myQueryPanel);
 
 	

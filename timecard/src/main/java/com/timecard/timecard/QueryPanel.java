@@ -111,7 +111,7 @@ public class QueryPanel extends JPanel{
 		springLayout.putConstraint(SpringLayout.WEST, lblMessage, 10, SpringLayout.WEST, this);
 
 		lblMessage.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		add(lblMessage);
+		//add(lblMessage);
 
 		JLabel lblQueryRequest = new JLabel("QUERY REQUEST");
 		springLayout.putConstraint(SpringLayout.NORTH, lblItemName, 28, SpringLayout.SOUTH, lblQueryRequest);
@@ -180,7 +180,7 @@ public class QueryPanel extends JPanel{
 		myFrame.setResizable(true);
 		myFrame.setTitle("My Query Results");
 		myFrame.getContentPane().setLayout(new BorderLayout());
-		myFrame.setSize(320,500);
+		myFrame.setSize(320,250);
 		myFrame.getContentPane().add(queryPanel);
 		myFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		myFrame.setVisible(true);
