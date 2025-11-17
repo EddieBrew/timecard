@@ -5,6 +5,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import com.toedter.calendar.JDateChooser;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.SpringLayout;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -81,4 +82,24 @@ public class HoursWorkedPanel extends JPanel {
 		add(btnNewButton);
 
 	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	HoursWorkedPanel hrPanel = new HoursWorkedPanel();
+
+
+		JFrame myFrame = new JFrame();
+		myFrame.setResizable(true);
+		myFrame.setTitle("My Query Results");
+		//myFrame.getContentPane().setLayout(new BorderLayout());
+		myFrame.setSize(475,250);
+		myFrame.getContentPane().add(hrPanel);
+		myFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		myFrame.setVisible(true);
+
+	}
+	
+
+
+
 }
