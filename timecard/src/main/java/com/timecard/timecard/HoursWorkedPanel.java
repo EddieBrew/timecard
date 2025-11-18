@@ -137,10 +137,9 @@ public class HoursWorkedPanel extends JPanel {
 				} else {
 
 					//String title = "Daily Regular Worked Hours  " + minHours + " and "  +  maxHours;
-					for ( int i =0; i < list.size(); i++) {
-						System.out.println( list.get(i).toString());
-					}
-
+					String title = "Pay Period for " + beginDateString + " to " + endDateString;
+					new MyTable(list, title);//produces the output table
+				    //getPayrollHours(list);
 				} 
 				if (dStatus) {
 					mydatabase.clearList();
@@ -152,78 +151,10 @@ public class HoursWorkedPanel extends JPanel {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		MySQLConnect mydatabase = null;
-		String PAYROLL_HOURS_DATABASE_TABLE = "dailyhours";
-		//Boolean dStatus;
-		Boolean dStatus;
-
-		/* 273 */     String credentialsFilename = "mysqlsignonstuff.txt";
-		/* 274 */     String DELIMITER = "%";
-		/* 275 */     String[] myDatastuff = getCredentialsFromFile("mysqlsignonstuff.txt").split("%");
-		/*     */     
-		/* 277 */     mydatabase = new MySQLConnect(myDatastuff[0], myDatastuff[1], myDatastuff[2]);
-		/*     */     dStatus = mydatabase.isConnected();
-		/* 279 */     if (dStatus) {
-			/* 280 */       JOptionPane.showMessageDialog(null, "Database Connected");
-			/* 281 */    HoursWorkedPanel hrPanel = new HoursWorkedPanel(mydatabase, dStatus);
-			JFrame myFrame = new JFrame();
-			myFrame.setResizable(true);
-			myFrame.setTitle("My Query Results");
-			//myFrame.getContentPane().setLayout(new BorderLayout());
-			myFrame.setSize(475,250);
-			myFrame.getContentPane().add(hrPanel);
-			myFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-			myFrame.setVisible(true);
-		/*     */     } else {
-
-			/* 283 */     JOptionPane.showMessageDialog(null, "Trouble Connecting to Database");
-			/* 284 */  
-		/*     */   }
-		/*     */   
 
 	}
 
 
 
-	private static String getCredentialsFromFile(String inputFile) {
-		/* 355 */     int myMagicNumber = 36;
-		/* 356 */     String allData = null;
-		/* 357 */     int count = 1;
-		/* 358 */     BufferedReader bufferedReader = null;
-		/*     */     
-		/*     */     try {
-			/* 361 */       bufferedReader = new BufferedReader(new FileReader(inputFile));
-			/*     */       try {
-				/*     */         String data;
-				/* 364 */         while ((data = bufferedReader.readLine()) != null) {
-					/* 365 */           if (count == 36) {
-						/* 366 */             allData = data;
-					/*     */           }
-					/* 368 */           count++;
-				/*     */         } 
-				/* 370 */         if (count < 36) {
-					/* 371 */           JOptionPane.showMessageDialog(null, "TimeCardSU: Credentials can not be found.");
-				/*     */         }
-			/* 373 */       } catch (IOException e) {
-				/*     */         
-				/* 375 */         e.printStackTrace();
-				/* 376 */         JOptionPane.showMessageDialog(null, "TimeCardSU: HomeMainGUI: Can not read  from file ");
-			/*     */       } 
-		/* 378 */     } catch (FileNotFoundException e) {
-			/*     */       String data;
-			/* 380 */       JOptionPane.showMessageDialog(null, 
-					/* 381 */           "TimeCardSU : Can not find MYSQL database \ncredential file. Program terminated ");
-			/* 382 */       e.printStackTrace();
-		/*     */     } finally {
-			/*     */       try {
-				/* 385 */         bufferedReader.close();
-			/* 386 */       } catch (IOException e) {
-				/*     */         
-				/* 388 */         JOptionPane.showMessageDialog(null, "TimeCardSU :Error Closing The File" + e);
-				/* 389 */         e.printStackTrace();
-			/*     */       } 
-		/*     */     } 
-		/*     */     
-		/* 393 */     return allData;
-	/*     */   }
+	
 }

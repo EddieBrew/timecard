@@ -144,8 +144,9 @@ public class PayrollQueryPanel extends JPanel{
 	/*     */             } else {
 	/*     */               
 	/* 165 */               String title = "Pay Period for " + beginDateString + " to " + endDateString;
-	/*     */               
-	/* 167 */               PayrollQueryPanel.this.getPayrollHours(list);
+							new MyTable(list, title);//produces the output table
+						    getPayrollHours(list);
+	
 	/*     */             } 
 	/* 169 */             if (PayrollQueryPanel.this.databaseStatus.booleanValue()) {
 	/* 170 */               mySQLDatabase.clearList();
