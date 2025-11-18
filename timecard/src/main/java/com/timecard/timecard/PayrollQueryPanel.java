@@ -261,7 +261,7 @@ public class PayrollQueryPanel extends JPanel{
 	/*     */     }
 	/*     */   }
 
-	/*     */   public List<DailyInfoModel> getDataFromFile(String beginDateString, String endDateString) {
+	/*     */   static public List<DailyInfoModel> getDataFromFile(String beginDateString, String endDateString) {
 	/* 325 */     BufferedReader fileReader = null;
 	/* 326 */     String str = "";
 	/* 327 */     List<DailyInfoModel> myList = new ArrayList<>();

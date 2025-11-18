@@ -51,10 +51,7 @@ public class TimeCardSU extends JFrame implements ActionListener{
 	/*     */   
 	/*     */   TimeCardSU() {
 	/*  77 */     this.frameStanford = new JFrame();
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
+
 	/*     */     
 	/*  83 */     this.menuBar = new JMenuBar();
 	/*  84 */     this.menuBar.setLayout(new BorderLayout());
@@ -98,17 +95,7 @@ public class TimeCardSU extends JFrame implements ActionListener{
 	/*     */         {
 	/*     */           public void actionPerformed(ActionEvent e) {}
 	/*     */         });
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
+
 	/*     */ 
 	 this.upload.addActionListener(new ActionListener() {//Uploads cost.csv file to database
 		@Override
