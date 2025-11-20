@@ -58,6 +58,7 @@ public class TimeCardSU extends JFrame implements ActionListener{
 	private JMenuItem reconnectToDatabase;
 	private JMenuItem hoursQuery;
 	private static final long serialVersionUID = 1L;
+	private Boolean isHoursWorkedPanelVisisble;
 
 	/*     */   
 	/*     */   TimeCardSU() {
@@ -96,13 +97,14 @@ public class TimeCardSU extends JFrame implements ActionListener{
 		/* 111 */     this.reconnectToDatabase = new JMenuItem("Reconnect To Database");
 		/* 112 */     this.reformatDate.setVisible(false);
 		/*     */     
-		/* 114 */     this.myMenu.add(this.download);
+		/* 114 */    this.myMenu.add(this.hoursQuery); 
+					this.myMenu.add(this.download);
 		/* 115 */     this.myMenu.add(this.upload);
-		/*     */     
 		/* 117 */     this.myMenu.add(this.reconnectToDatabase);
 		/* 118 */     this.myMenu.add(this.logout);
 		/* 119 */     this.myMenu.add(this.reformatDate);
-					this.myMenu.add(this.hoursQuery);
+					
+		isHoursWorkedPanelVisisble = false;
 		/*     */     
 		/* 121 */     this.about.addActionListener(new ActionListener()
 				/*     */         {
@@ -118,12 +120,29 @@ public class TimeCardSU extends JFrame implements ActionListener{
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
 				// Remove the old panel
-                frameStanford.remove(payrollQueryPanel);
+                
+				if(!isHoursWorkedPanelVisisble) {
+				frameStanford.remove(payrollQueryPanel);
+				
+				hoursWorkedPanel = new HoursWorkedPanel(mySQLDatabase, databaseStatus);
         
-                frameStanford.getContentPane().add(new HoursWorkedPanel(mySQLDatabase, true));
+                frameStanford.getContentPane().add(hoursWorkedPanel);
                 frameStanford.setVisible(true);
         		/*     */     
         		frameStanford.validate();
+        		isHoursWorkedPanelVisisble = true;
+				}else {
+					
+					
+					frameStanford.remove(hoursWorkedPanel);
+					payrollQueryPanel = new PayrollQueryPanel(mySQLDatabase, databaseStatus);
+			        
+	                frameStanford.getContentPane().add(payrollQueryPanel);
+	                frameStanford.setVisible(true);
+	        		/*     */     
+	        		frameStanford.validate();
+	        		isHoursWorkedPanelVisisble = false;
+				}
 			}
 
 		});
