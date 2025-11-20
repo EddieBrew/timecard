@@ -30,16 +30,10 @@ public class HoursWorkedPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private JTextField textField_MinHours;
 	private JTextField textField_MaxHours;
-	private static MySQLConnect mydatabase;
-	private JDateChooser dateChooserEndDate; 
-	private JDateChooser dateChooserBeginDate; 
-	private Boolean dStatus;
 	/**
 	 * Create the panel.
 	 */
 	public HoursWorkedPanel(final MySQLConnect mydatabase, Boolean dStatus) {
-		this.mydatabase = mydatabase;
-		this.dStatus = dStatus;
 		SpringLayout springLayout = new SpringLayout();
 		setLayout(springLayout);
 		setPreferredSize(new Dimension(450, 178)); // (Width, Height)
