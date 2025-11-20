@@ -20,6 +20,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.SpringLayout;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.JTextField;
@@ -42,6 +43,7 @@ public class HoursWorkedPanel extends JPanel {
 		SpringLayout springLayout = new SpringLayout();
 		setLayout(springLayout);
 		setPreferredSize(new Dimension(450, 178)); // (Width, Height)
+	    setBackground(Color.PINK);
 
 		JLabel lblBeginDate = new JLabel("BEGIN DATE");
 		add(lblBeginDate);
