@@ -154,68 +154,13 @@ public class PayrollQueryPanel extends JPanel{
 	/*     */           }
 	/*     */         });
 	/*     */   }
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */   
+	  
 	/*     */   void produceJSONDataFromList(List<DailyInfoModel> list) {}
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */   
+	   
 	/*     */   static void deleteDataFromServer() {}
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
+
 	/*     */   
 	/*     */   void getJSONData() {}
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
-	/*     */ 
 	/*     */   
 	/*     */   static void sortByDateNWriteToFile(List<DailyInfoModel> dataArray) {
 	/* 239 */     if (dataArray == null) {
