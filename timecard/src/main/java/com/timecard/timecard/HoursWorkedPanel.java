@@ -11,6 +11,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
@@ -37,27 +38,60 @@ public class HoursWorkedPanel extends JPanel {
 		SpringLayout springLayout = new SpringLayout();
 		setLayout(springLayout);
 		setPreferredSize(new Dimension(450, 178)); // (Width, Height)
-	    setBackground(Color.PINK);
-
+		setBackground(Color.PINK);
+        /*
 		JLabel lblBeginDate = new JLabel("BEGIN DATE");
+		springLayout.putConstraint(SpringLayout.NORTH, lblBeginDate, 73, SpringLayout.NORTH, this);
+		springLayout.putConstraint(SpringLayout.WEST, lblBeginDate, 10, SpringLayout.WEST, this);
 		add(lblBeginDate);
-
+*/
+		
+		JLabel lblBeginDate = new JLabel("BEGIN DATE");
+		springLayout.putConstraint(SpringLayout.WEST, lblBeginDate, 27, SpringLayout.WEST, this);
+		add(lblBeginDate);
+		
+		/*
+		
+		JLabel lblEndDate = new JLabel("END DATE");
+		springLayout.putConstraint(SpringLayout.NORTH, lblEndDate, 0, SpringLayout.NORTH, lblBeginDate);
+		springLayout.putConstraint(SpringLayout.WEST, lblEndDate, 56, SpringLayout.EAST, lblBeginDate);
+		add(lblEndDate);
+*/
+		
 		JLabel lblEndDate = new JLabel("END DATE");
 		springLayout.putConstraint(SpringLayout.WEST, lblEndDate, 50, SpringLayout.EAST, lblBeginDate);
+		springLayout.putConstraint(SpringLayout.SOUTH, lblEndDate, -89, SpringLayout.SOUTH, this);
 		springLayout.putConstraint(SpringLayout.NORTH, lblBeginDate, 0, SpringLayout.NORTH, lblEndDate);
 		add(lblEndDate);
-
+		
+		/*
 		JDateChooser dateChooserEndDate = new JDateChooser();
-		springLayout.putConstraint(SpringLayout.SOUTH, lblEndDate, -2, SpringLayout.NORTH, dateChooserEndDate);
-		springLayout.putConstraint(SpringLayout.NORTH, dateChooserEndDate, 91, SpringLayout.NORTH, this);
-		springLayout.putConstraint(SpringLayout.WEST, dateChooserEndDate, 150, SpringLayout.WEST, this);
+		springLayout.putConstraint(SpringLayout.NORTH, dateChooserEndDate, 5, SpringLayout.SOUTH, lblEndDate);
+		springLayout.putConstraint(SpringLayout.SOUTH, dateChooserEndDate, 24, SpringLayout.SOUTH, lblEndDate);
 		dateChooserEndDate.setDateFormatString("MM/dd/yyyy");
 		add(dateChooserEndDate);
 
 		JDateChooser dateChooserBeginDate = new JDateChooser();
-		springLayout.putConstraint(SpringLayout.WEST, lblBeginDate, 0, SpringLayout.WEST, dateChooserBeginDate);
-		springLayout.putConstraint(SpringLayout.NORTH, dateChooserBeginDate, 91, SpringLayout.NORTH, this);
-		springLayout.putConstraint(SpringLayout.WEST, dateChooserBeginDate, 27, SpringLayout.WEST, this);
+		springLayout.putConstraint(SpringLayout.WEST, dateChooserEndDate, -20, SpringLayout.EAST, dateChooserBeginDate);
+		springLayout.putConstraint(SpringLayout.NORTH, dateChooserBeginDate, 6, SpringLayout.SOUTH, lblBeginDate);
+		springLayout.putConstraint(SpringLayout.WEST, dateChooserBeginDate, 0, SpringLayout.WEST, lblBeginDate);
+		springLayout.putConstraint(SpringLayout.EAST, dateChooserBeginDate, 115, SpringLayout.WEST, this);
+		dateChooserBeginDate.setDateFormatString("MM/dd/yyyy");
+		add(dateChooserBeginDate);
+
+
+*/
+		JDateChooser dateChooserEndDate = new JDateChooser();
+		springLayout.putConstraint(SpringLayout.NORTH, dateChooserEndDate, 6, SpringLayout.SOUTH, lblEndDate);
+		dateChooserEndDate.setDateFormatString("MM/dd/yyyy");
+		add(dateChooserEndDate);
+
+		JDateChooser dateChooserBeginDate = new JDateChooser();
+		springLayout.putConstraint(SpringLayout.EAST, dateChooserEndDate, 103, SpringLayout.EAST, dateChooserBeginDate);
+		springLayout.putConstraint(SpringLayout.NORTH, dateChooserBeginDate, 6, SpringLayout.SOUTH, lblBeginDate);
+		springLayout.putConstraint(SpringLayout.WEST, dateChooserEndDate, 6, SpringLayout.EAST, dateChooserBeginDate);
+		springLayout.putConstraint(SpringLayout.WEST, dateChooserBeginDate, 10, SpringLayout.WEST, this);
+		springLayout.putConstraint(SpringLayout.EAST, dateChooserBeginDate, 115, SpringLayout.WEST, this);
 		dateChooserBeginDate.setDateFormatString("MM/dd/yyyy");
 		add(dateChooserBeginDate);
 
@@ -68,32 +102,38 @@ public class HoursWorkedPanel extends JPanel {
 		add(lblNewLabel);
 
 		JLabel lblMinHours = new JLabel("MIN HOURS");
-		springLayout.putConstraint(SpringLayout.WEST, lblMinHours, 43, SpringLayout.EAST, lblEndDate);
+		springLayout.putConstraint(SpringLayout.NORTH, lblMinHours, 0, SpringLayout.NORTH, lblBeginDate);
 		add(lblMinHours);
 
 		JLabel lblMinHours_1 = new JLabel("MAX HOURS");
-		springLayout.putConstraint(SpringLayout.WEST, lblMinHours_1, 16, SpringLayout.EAST, lblMinHours);
+		springLayout.putConstraint(SpringLayout.NORTH, lblMinHours_1, 0, SpringLayout.NORTH, lblBeginDate);
+		springLayout.putConstraint(SpringLayout.EAST, lblMinHours_1, -47, SpringLayout.EAST, this);
 		add(lblMinHours_1);
 
 		textField_MinHours = new JTextField();
-		springLayout.putConstraint(SpringLayout.SOUTH, lblMinHours, -2, SpringLayout.NORTH, textField_MinHours);
-		springLayout.putConstraint(SpringLayout.NORTH, textField_MinHours, 0, SpringLayout.NORTH, dateChooserEndDate);
-		springLayout.putConstraint(SpringLayout.WEST, textField_MinHours, 0, SpringLayout.WEST, lblMinHours);
+		springLayout.putConstraint(SpringLayout.NORTH, textField_MinHours, 6, SpringLayout.SOUTH, lblMinHours);
+		springLayout.putConstraint(SpringLayout.WEST, textField_MinHours, 24, SpringLayout.EAST, dateChooserEndDate);
+		springLayout.putConstraint(SpringLayout.WEST, lblMinHours, 0, SpringLayout.WEST, textField_MinHours);
 		add(textField_MinHours);
 		textField_MinHours.setColumns(7);
 
 		textField_MaxHours = new JTextField();
-		springLayout.putConstraint(SpringLayout.SOUTH, lblMinHours_1, -2, SpringLayout.NORTH, textField_MaxHours);
-		springLayout.putConstraint(SpringLayout.NORTH, textField_MaxHours, 0, SpringLayout.NORTH, dateChooserEndDate);
-		springLayout.putConstraint(SpringLayout.WEST, textField_MaxHours, 0, SpringLayout.WEST, lblMinHours_1);
+		springLayout.putConstraint(SpringLayout.EAST, textField_MinHours, -29, SpringLayout.WEST, textField_MaxHours);
+		springLayout.putConstraint(SpringLayout.NORTH, textField_MaxHours, 6, SpringLayout.SOUTH, lblMinHours_1);
+		springLayout.putConstraint(SpringLayout.WEST, textField_MaxHours, 346, SpringLayout.WEST, this);
+		springLayout.putConstraint(SpringLayout.EAST, textField_MaxHours, -26, SpringLayout.EAST, this);
 		textField_MaxHours.setColumns(7);
 		add(textField_MaxHours);
 
 		JButton btnResults = new JButton("RESULTS");
-		springLayout.putConstraint(SpringLayout.NORTH, btnResults, 23, SpringLayout.SOUTH, dateChooserEndDate);
+		springLayout.putConstraint(SpringLayout.SOUTH, textField_MinHours, -19, SpringLayout.NORTH, btnResults);
+		springLayout.putConstraint(SpringLayout.NORTH, btnResults, 133, SpringLayout.NORTH, this);
 		springLayout.putConstraint(SpringLayout.EAST, btnResults, -164, SpringLayout.EAST, this);
 		add(btnResults);
 
+		
+		
+		
 		btnResults.addActionListener(new ActionListener() {
 
 			@Override
@@ -110,36 +150,57 @@ public class HoursWorkedPanel extends JPanel {
 				List<DailyInfoModel> list = null;
 
 
-				if (!dStatus) {
+				if (!dStatus) { //Query from the csv file
 					list = PayrollQueryPanel.getDataFromFile(beginDateString, endDateString);
 					System.out.println("Size of list is : " + list.size());
+					List<DailyInfoModel> hoursWorked = new ArrayList<>();
+					for (DailyInfoModel obj : list){
+
+						if (obj.getRhours()  >=  minHours  && obj.getRhours() <= maxHours) {
+							System.out.println( minHours  + ", " + obj.getRhours() + ", " + maxHours);
+
+							hoursWorked.add(obj);
+						}
+					}
+
+					if (hoursWorked.size() == 0) {
+						JFrame frame = new JFrame();
+						JOptionPane.showMessageDialog(frame, 
+								"No Data Available Between Min and Max Worked Hour  Range. ", 
+								"Data Error", 
+								0);
+					}
+
+					String title = "Daily Regular  Worked From " + beginDateString + " to " + endDateString;
+					new MyTable(hoursWorked, title);//produces the output table 
 
 				}
-				else {
+				else {//Query from the MYSQL database
 					String result = "SELECT * FROM dailyhours WHERE  DATE >= '" + beginDateString + "' AND DATE <= '" + endDateString + "' AND REGHOURS >=  " + 
 							minHours +  "AND REGHOURS <=  " + maxHours + " ORDER BY DATE DESC ";
 
 
 					mydatabase.getDateRangeResults(result);
 					list = mydatabase.getList();
-				} 
+					if (list.size() == 0) {
+						JFrame frame = new JFrame();
+						JOptionPane.showMessageDialog(frame, 
+								"No Data Available Between Min and Max Worked Hour  Range. ", 
+								"Data Error", 
+								0);
 
-				if (list.size() == 0) {
-					JFrame frame = new JFrame();
-					JOptionPane.showMessageDialog(frame, 
-							"No Data Available Between Date Range. Verify that the Beginning and Ending Dates are accurate", 
-							"Data Error", 
-							0);
-				} else {
+					} else {
 
-					//String title = "Daily Regular Worked Hours  " + minHours + " and "  +  maxHours;
-					String title = "Pay Period for " + beginDateString + " to " + endDateString;
-					new MyTable(list, title);//produces the output table
-				    //getPayrollHours(list);
-				} 
-				if (dStatus) {
-					mydatabase.clearList();
-				}         }
+						//String title = "Daily Regular Worked Hours  " + minHours + " and "  +  maxHours;
+						String title = "Daily Regular Hours Worked From " + beginDateString + " to " + endDateString;
+						new MyTable(list, title);//produces the output table
+						//getPayrollHours(list);
+					} 
+					mydatabase.clearList();					        
+
+				} //end else
+
+			}
 
 		});
 
@@ -152,5 +213,5 @@ public class HoursWorkedPanel extends JPanel {
 
 
 
-	
+
 }

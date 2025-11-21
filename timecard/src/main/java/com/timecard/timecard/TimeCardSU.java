@@ -378,7 +378,7 @@ public class TimeCardSU extends JFrame implements ActionListener{
 			/*     */       try {
 				/*     */         String data;
 				/* 364 */         while ((data = bufferedReader.readLine()) != null) {
-					/* 365 */           if (count == 36) {
+					/* 365 */           if (count == myMagicNumber) {
 						/* 366 */             allData = data;
 					/*     */           }
 					/* 368 */           count++;
